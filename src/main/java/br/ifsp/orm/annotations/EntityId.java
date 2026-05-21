@@ -1,4 +1,4 @@
-package br.ifsp.orm;
+package br.ifsp.orm.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,4 +1,4 @@
-package br.ifsp.orm;
+package br.ifsp.orm.contracts;
 
 import java.sql.SQLException;
 

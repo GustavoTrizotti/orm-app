@@ -1,8 +1,10 @@
-package br.ifsp.orm;
+package br.ifsp.orm.contracts;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Optional;
 
 public interface Retrievable <T, K>{
     Optional<T> findOne(K k) throws SQLException;
+    List<T> findAll() throws SQLException;
 }

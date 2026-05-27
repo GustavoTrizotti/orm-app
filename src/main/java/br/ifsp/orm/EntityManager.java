@@ -1,5 +1,8 @@
 package br.ifsp.orm;
 
+import br.ifsp.orm.annotations.EntityId;
+import br.ifsp.orm.exception.MyORMException;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Arrays;

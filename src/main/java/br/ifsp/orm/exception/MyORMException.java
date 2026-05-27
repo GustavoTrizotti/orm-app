@@ -1,4 +1,4 @@
-package br.ifsp.orm;
+package br.ifsp.orm.exception;
 
 public class MyORMException extends RuntimeException {
     public MyORMException(String message) {

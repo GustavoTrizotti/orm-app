@@ -1,6 +1,6 @@
 package br.ifsp.orm.mappers;
 
-import br.ifsp.orm.OrmEntity;
+import br.ifsp.orm.annotations.OrmEntity;
 
 import java.sql.Types;
 

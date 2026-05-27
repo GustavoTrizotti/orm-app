@@ -90,7 +90,7 @@ public class OrmReflectionLoader implements ReflectionLoader {
         return instance;
     }
 
-    public OrmReflectionLoader scanClasspath(String basePackage) throws IOException {
+    public OrmReflectionLoader scanClasspath(String basePackage) {
         String path = basePackage.replace(".", "/");
         String classpath = System.getProperty("java.class.path");
 

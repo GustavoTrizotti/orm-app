@@ -4,8 +4,10 @@ import br.ifsp.orm.ConnectionFactory;
 import br.ifsp.orm.annotations.Column;
 import br.ifsp.orm.annotations.OrmEntity;
 import br.ifsp.orm.mappers.TypeMapper;
-import org.reflections.Reflections;
+import br.ifsp.reflection.OrmReflectionLoader;
+import br.ifsp.reflection.ReflectionLoader;
 
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.sql.SQLException;
 import java.util.Arrays;
@@ -13,16 +15,17 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class DatabaseBuilder {
-    private static final String ENTITIES_PACKAGE = "br.ifsp.example";
-
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         DatabaseBuilder.createTableFromOrmEntities();
     }
 
-    private static void createTableFromOrmEntities() {
+    private static void createTableFromOrmEntities() throws IOException {
         String packageName = DatabaseBuilder.class.getPackageName();
-        Reflections reflections = new Reflections(packageName);
-        Set<Class<?>> ormEntities = reflections.getTypesAnnotatedWith(OrmEntity.class);
+        ReflectionLoader loader = OrmReflectionLoader
+                .fromCurrentClasspath()
+                .scanClasspath(packageName);
+
+        Set<Class<?>> ormEntities = loader.getTypesAnnotatedWith(OrmEntity.class);
         ormEntities.stream()
                 .map(DatabaseBuilder::generateTable)
                 .forEach(DatabaseBuilder::createTable);

@@ -1,9 +1,9 @@
 package br.ifsp.example;
 
-import br.ifsp.orm.ConnectionFactory;
 import br.ifsp.orm.annotations.Column;
 import br.ifsp.orm.annotations.OrmEntity;
 import br.ifsp.orm.mappers.TypeMapper;
+import br.ifsp.orm.persistence.ConnectionFactory;
 import br.ifsp.reflection.OrmReflectionLoader;
 import br.ifsp.reflection.ReflectionLoader;
 
